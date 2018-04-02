@@ -17,6 +17,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'foreman'
 gem 'httparty'
 gem 'figaro'
+gem 'haml', '~> 5.0'
 
 group :development, :test do
   gem 'pry'
@@ -35,3 +36,7 @@ group :development do
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+source 'https://rails-assets.org' do
+  gem 'rails-assets-bootstrap'
+end
