@@ -16,9 +16,11 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'foreman'
 gem 'httparty'
+gem 'figaro'
 
 group :development, :test do
   gem 'pry'
+  gem 'pry-rails'
   gem 'pry-byebug'
   gem 'rspec-rails'
   gem 'capybara', '~> 2.13'

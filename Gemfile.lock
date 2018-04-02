@@ -68,6 +68,8 @@ GEM
     erubi (1.7.1)
     execjs (2.7.0)
     ffi (1.9.23)
+    figaro (1.1.1)
+      thor (~> 0.14)
     foreman (0.64.0)
       dotenv (~> 0.7.0)
       thor (>= 0.13.6)
@@ -105,6 +107,8 @@ GEM
     pry-byebug (3.6.0)
       byebug (~> 10.0)
       pry (~> 0.10)
+    pry-rails (0.3.6)
+      pry (>= 0.10.4)
     public_suffix (3.0.2)
     puma (3.11.3)
     rack (2.0.4)
@@ -215,6 +219,7 @@ PLATFORMS
 DEPENDENCIES
   capybara (~> 2.13)
   coffee-rails (~> 4.2)
+  figaro
   foreman
   httparty
   jbuilder (~> 2.5)
@@ -222,6 +227,7 @@ DEPENDENCIES
   pg (>= 0.18, < 2.0)
   pry
   pry-byebug
+  pry-rails
   puma (~> 3.7)
   rails (~> 5.1.5)
   rspec-rails
