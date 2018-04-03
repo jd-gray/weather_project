@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
-  get 'weather', to: 'weather#index'
+
+  resources :locations
+
+  root to: 'home#index'
 end
