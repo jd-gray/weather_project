@@ -18,6 +18,7 @@ gem 'foreman'
 gem 'httparty'
 gem 'figaro'
 gem 'haml', '~> 5.0'
+gem 'devise'
 
 group :development, :test do
   gem 'pry'

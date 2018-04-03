@@ -6,14 +6,10 @@ default: &default
 development:
   <<: *default
   database: weather_project_development
-  username: root
-  password:
 
 test:
   <<: *default
   database: weather_project_test
-  username: root
-  password:
 
 production:
   <<: *default
