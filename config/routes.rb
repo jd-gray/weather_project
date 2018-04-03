@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+
   devise_scope :users do
     authenticated :user do
       root to: 'locations#index'

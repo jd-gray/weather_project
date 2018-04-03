@@ -28,11 +28,11 @@ module Zippopotamus
           zip_code_data['place name']
         end
 
-        def lat
+        def latitude
           zip_code_data['latitude']
         end
 
-        def long
+        def longitude
           zip_code_data['longitude']
         end
 
@@ -41,8 +41,8 @@ module Zippopotamus
               zip_code: zip_code,
               country_abbreviation: country_abbreviation,
               city: city,
-              lat: lat,
-              long: long
+              latitude: latitude,
+              longitude: longitude
           }
         end
       end

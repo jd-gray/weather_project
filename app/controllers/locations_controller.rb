@@ -16,7 +16,8 @@ class LocationsController < ApplicationController
   end
 
   def create
-    @location = Location.new(location_params)
+    location_data = Zippopotamus::Api::Client.get_zip_code(zip_code)
+    @location = Location.new(location_data.merge(user_id: current_user.id))
 
     respond_to do |format|
       if @location.save
@@ -56,5 +57,9 @@ class LocationsController < ApplicationController
 
     def location_params
       params.require(:location).permit(:zip_code)
+    end
+
+    def zip_code
+      location_params['zip_code']
     end
 end

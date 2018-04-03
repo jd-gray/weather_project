@@ -7,8 +7,8 @@ module Zippopotamus
 
       base_uri ENV['ZIPPOPOTAMUS_BASE_URI']
 
-      def self.get_zip_code
-        request = get('/us/92648')
+      def self.get_zip_code(zip_code)
+        request = get("/us/#{zip_code}")
         ZippopotamusResponse.new(request).parse
       end
     end
