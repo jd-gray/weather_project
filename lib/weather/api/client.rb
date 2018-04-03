@@ -12,7 +12,7 @@ module Weather
         yql_query = "select * from weather.forecast where woeid in (select woeid from geo.places(1) where placetype='zip' and text='85233')"
 
         request_query = { query: { q: yql_query } }
-        request = get('/v1/public/yql?', request_query)
+        request = get('/v1/public/yql', request_query)
         WeatherResponse.new(request).parse
       end
     end
