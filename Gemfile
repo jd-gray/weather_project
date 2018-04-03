@@ -19,6 +19,7 @@ gem 'httparty'
 gem 'figaro'
 gem 'haml', '~> 5.0'
 gem 'devise'
+gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 
 group :development, :test do
   gem 'pry'
