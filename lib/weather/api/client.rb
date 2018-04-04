@@ -7,9 +7,9 @@ module Weather
 
       base_uri ENV['YAHOO_WEATHER_BASE_URI']
 
-      def self.get_weather
+      def self.get_weather(zip_code)
         # yql = Yahoo Query Language
-        yql_query = "select * from weather.forecast where woeid in (select woeid from geo.places(1) where placetype='zip' and text='85233')"
+        yql_query = "select * from weather.forecast where woeid in (select woeid from geo.places(1) where placetype='zip' and text=#{zip_code})"
 
         request_query = { query: { q: yql_query } }
         request = get('/v1/public/yql', request_query)

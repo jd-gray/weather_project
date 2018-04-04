@@ -3,12 +3,20 @@
     %tr
       %th Zip Code
       %th City/State
+      %th Current Temperature (Fahrenheit)
+      %th High
+      %th Low
+      %th Avg Temperature
       %th{:colspan => "3"}
   %tbody
     - @locations.each do |location|
       %tr
         %td= location.zip_code
         %td= "#{location.city}, #{location.country_abbreviation}"
+        %td= location.current_temperature_fahrenheit
+        %td= location.high
+        %td= location.low
+        %td= location.average_temperature
         %td= link_to 'Show', location
         %td= link_to 'Edit', edit_location_path(location)
         %td= link_to 'Destroy', location, method: :delete, data: { confirm: 'Are you sure?' }

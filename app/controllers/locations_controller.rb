@@ -16,18 +16,8 @@ class LocationsController < ApplicationController
   end
 
   def create
-    location_data = Zippopotamus::Api::Client.get_zip_code(zip_code)
-    @location = Location.new(location_data.merge(user_id: current_user.id))
-
-    respond_to do |format|
-      if @location.save
-        format.html { redirect_to @location, notice: 'Location was successfully created.' }
-        format.json { render :show, status: :created, location: @location }
-      else
-        format.html { render :new }
-        format.json { render json: @location.errors, status: :unprocessable_entity }
-      end
-    end
+    Locations::LocationService.new(zip_code, current_user.id).create_location
+    redirect_to locations_path
   end
 
   def update
@@ -51,15 +41,16 @@ class LocationsController < ApplicationController
   end
 
   private
-    def set_location
-      @location = Location.find(params[:id])
-    end
 
-    def location_params
-      params.require(:location).permit(:zip_code)
-    end
+  def set_location
+    @location = Location.find(params[:id])
+  end
 
-    def zip_code
-      location_params['zip_code']
-    end
+  def location_params
+    params.require(:location).permit(:zip_code)
+  end
+
+  def zip_code
+    location_params['zip_code']
+  end
 end
