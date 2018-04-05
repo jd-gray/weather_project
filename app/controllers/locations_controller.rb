@@ -1,12 +1,9 @@
 class LocationsController < ApplicationController
-  before_action :set_location, only: [:show, :destroy]
+  before_action :set_location, only: :destroy
 
   def index
     @locations = Location.where(user_id: current_user.id).order("created_at desc")
     gon.locations = @locations
-  end
-
-  def show
   end
 
   def new
@@ -16,6 +13,9 @@ class LocationsController < ApplicationController
   def create
     Locations::LocationService.new(zip_code, current_user.id).create_location
     redirect_to locations_path
+
+  rescue StandardError
+    flash[:alert] = "Whoops something went wrong, check your zip code"
   end
 
   def destroy

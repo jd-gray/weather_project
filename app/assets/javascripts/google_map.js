@@ -162,7 +162,6 @@ function initMap() {
   };
 
   // Google Map
-  debugger;
   var map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
   // Custom Style Map
