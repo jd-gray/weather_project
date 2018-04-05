@@ -7,7 +7,7 @@
       %ul
         - location.errors.full_messages.each do |message|
           %li= message
-  = f.text_field :zip_code
+  = f.text_field :zip_code, maxlength: 5, required: true
 
   .actions
     = f.submit
