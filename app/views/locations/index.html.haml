@@ -19,7 +19,6 @@
         %td= "#{location.high}&deg;F (#{celcius_conversion(location.high)}&deg;C)".html_safe
         %td= "#{location.low}&deg;F (#{celcius_conversion(location.low)}&deg;C)".html_safe
         %td= "#{location.average_temperature}&deg;F (#{celcius_conversion(location.average_temperature)}&deg;C)".html_safe
-        %td= link_to 'Show', location
         %td= link_to 'Destroy', location, method: :delete, data: { confirm: 'Are you sure?' }
 %br/
 = link_to 'New Location', new_location_path
