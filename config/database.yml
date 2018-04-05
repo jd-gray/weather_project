@@ -14,5 +14,3 @@ test:
 production:
   <<: *default
   database: weather_project_production
-  username: weather_project
-  password: <%= ENV['WEATHER_PROJECT_DATABASE_PASSWORD'] %>
