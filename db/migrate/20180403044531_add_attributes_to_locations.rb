@@ -1,11 +1,17 @@
 class AddAttributesToLocations < ActiveRecord::Migration[5.1]
   def change
-    add_column :locations, :state_abbreviation, :string
-    add_column :locations, :city, :string
-    add_column :locations, :latitude, :string
-    add_column :locations, :longitude, :string
-    add_column :locations, :current_temperature_fahrenheit, :float
-    add_column :locations, :high, :float
-    add_column :locations, :low, :float
+    create_table :locations do |t|
+      t.string :zip_code
+      t.string :city
+      t.string :state_abbreviation
+      t.string :latitude
+      t.string :longitude
+      t.float :current_temperature_fahrenheit
+      t.float :high
+      t.float :low
+      t.integer :user_id
+
+      t.timestamps null: false
+    end
   end
 end
