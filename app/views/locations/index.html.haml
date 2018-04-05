@@ -1,0 +1,28 @@
+#map
+
+%table.table
+  %thead
+    %tr
+      %th Zip Code
+      %th City/State
+      %th Current Temp
+      %th High
+      %th Low
+      %th Avg Temp
+      %th{:colspan => "3"}
+  %tbody
+    - @locations.each do |location|
+      %tr
+        %td= location.zip_code
+        %td= "#{location.city}, #{location.state_abbreviation}"
+        %td= "#{location.current_temperature_fahrenheit}&deg;F (#{celcius_conversion(location.current_temperature_fahrenheit)}&deg;C)".html_safe
+        %td= "#{location.high}&deg;F (#{celcius_conversion(location.high)}&deg;C)".html_safe
+        %td= "#{location.low}&deg;F (#{celcius_conversion(location.low)}&deg;C)".html_safe
+        %td= "#{location.average_temperature}&deg;F (#{celcius_conversion(location.average_temperature)}&deg;C)".html_safe
+        %td= link_to 'Show', location
+        %td= link_to 'Destroy', location, method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+= link_to 'New Location', new_location_path
+
+- content_for :google_map do
+  = javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{ENV['GOOGLE_MAP_API_KEY']}&libraries=drawing&callback=initMap"
