@@ -11,7 +11,7 @@ module Locations
       @location = Location.create!(
         zip_code: @zip_code,
         user_id: @user_id,
-        country_abbreviation: zip_code_data[:country_abbreviation],
+        state_abbreviation: zip_code_data[:state_abbreviation],
         city: zip_code_data[:city],
         latitude: zip_code_data[:latitude],
         longitude: zip_code_data[:longitude],

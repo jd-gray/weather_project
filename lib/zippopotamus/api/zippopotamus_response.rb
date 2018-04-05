@@ -16,12 +16,12 @@ module Zippopotamus
           data['post code']
         end
 
-        def country_abbreviation
-          data['country abbreviation']
-        end
-
         def zip_code_data
           data['places'].first
+        end
+
+        def state_abbreviation
+          zip_code_data['state abbreviation']
         end
 
         def city
@@ -39,7 +39,7 @@ module Zippopotamus
         def to_h
           {
               zip_code: zip_code,
-              country_abbreviation: country_abbreviation,
+              state_abbreviation: state_abbreviation,
               city: city,
               latitude: latitude,
               longitude: longitude

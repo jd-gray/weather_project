@@ -1,8 +1,9 @@
 class LocationsController < ApplicationController
-  before_action :set_location, only: [:show, :edit, :update, :destroy]
+  before_action :set_location, only: [:show, :destroy]
 
   def index
-    @locations = Location.all
+    @locations = Location.where(user_id: current_user.id).order("created_at desc")
+    gon.locations = @locations
   end
 
   def show
@@ -12,24 +13,9 @@ class LocationsController < ApplicationController
     @location = Location.new
   end
 
-  def edit
-  end
-
   def create
     Locations::LocationService.new(zip_code, current_user.id).create_location
     redirect_to locations_path
-  end
-
-  def update
-    respond_to do |format|
-      if @location.update(location_params)
-        format.html { redirect_to @location, notice: 'Location was successfully updated.' }
-        format.json { render :show, status: :ok, location: @location }
-      else
-        format.html { render :edit }
-        format.json { render json: @location.errors, status: :unprocessable_entity }
-      end
-    end
   end
 
   def destroy

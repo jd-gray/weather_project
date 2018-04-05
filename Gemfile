@@ -19,6 +19,7 @@ gem 'haml', '~> 5.0'
 gem 'devise'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 gem 'awesome_print', '~> 1.8'
+gem 'gon'
 
 group :development, :test do
   gem 'pry'
